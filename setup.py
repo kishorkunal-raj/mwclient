@@ -8,9 +8,6 @@ from setuptools import setup
 here = os.path.abspath(os.path.dirname(__file__))
 README = open(os.path.join(here, 'README.md')).read()
 
-needs_pytest = set(['pytest', 'test', 'ptr']).intersection(sys.argv)
-pytest_runner = ['pytest-runner'] if needs_pytest else []
-
 setup(name='mwclient',
       version='0.10.1',  # Use bumpversion to update
       description='MediaWiki API client',
@@ -31,9 +28,5 @@ setup(name='mwclient',
       license='MIT',
       packages=['mwclient'],
       install_requires=['requests-oauthlib', 'six'],
-      setup_requires=pytest_runner,
-      tests_require=['pytest', 'pytest-cov',
-                     'mock;python_version<"3.3"',
-                     'responses>=0.3.0', 'responses!=0.6.0'],
       zip_safe=True
       )
